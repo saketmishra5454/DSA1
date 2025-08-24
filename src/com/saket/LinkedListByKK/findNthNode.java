@@ -45,10 +45,25 @@ public class findNthNode {
 //        g.next = h;
 //        h.next = i;
 //        i.next = j;
-        Node p = nthNode(head,2);
+        Node p = nthNodeFast(head,3);
         System.out.println(p.data);
 
     }
+    public static Node nthNodeFast(Node head,int n){
+        Node slow = head;
+        Node fast = head;
+        for(int i = 0; i<n; i++){
+            fast = fast.next;
+        }
+        while(fast.next!=null){
+            slow = slow.next;
+            fast = fast.next;
+        }
+        return slow;
+    }
+
+
+
 
     public static Node nthNode(Node head, int n)
     {
